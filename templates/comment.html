@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COMMENTS</title>
+        <link rel="stylesheet" href="../static/comment.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <img src="../static/images/{{ q[0]['uname'] }}.png" alt="">
+                <span id="head">{{ q[0]['uname'] }}  posted {{ q[0]['time'] }}</span><br><br>
+                <h4>{{ q[0]['title'] }}</h4><br>
+                <span id="text">{{ q[0]['body'] }}</span>
+            </div>
+            <br>
+            
+            <div class="comments">
+                {% for i in range(lend) %}
+                <img src="../static/images/{{ c[0]['user'] }}.png" alt="">
+                <span id="head">{{ c[i]['user'] }} posted {{ c[i]['date'] }}</span><br><br>
+                <span id="com">{{ c[i]['comment'] }}</span><br><br>
+                {% endfor %}
+            </div>
+
+            <form action="/comment" method="post">
+                <div class="input">
+                    <input type="text" name="input" autocomplete="off" required placeholder="your comment. . ."> 
+                    <button name="comment" value="{{ q[0]['questionid'] }}">POST</button>
+                    <button><a href="http://localhost:55" style="color: white;">BACK</a></button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {    
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+.right_bar {    
+    background-color: white;
+    max-width: 150px;
+    padding-left: 15px;
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    float: right;
+    justify-content: center;
+    border-radius: 15px;
+    position: fixed; 
+    top: 120px;   
+    right: 15px;
+    bottom: 30px;
+    
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+
+p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+.ask_button, .all_button {
+    color: white;
+    padding: 8px;
+    background-color: rgb(49, 61, 238);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ask_button:hover, .all_button:hover {
+    background-color: royalblue;
+    padding: 9px;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASK</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+        * {    
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+        }
+        body {
+            background: #5f2c82;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .question_box {
+            background-color: white;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            border-radius: 10px;
+            position: absolute;
+            left: 30%;
+            top: 15%;
+            width: 40%;
+            height: 70%; 
+
+            padding-left: 30px;
+            padding-top: 10px;
+        }
+
+        .title {
+            margin: 5px;
+            margin-left: 0;
+            width: 450px;
+            height: 25px;
+            font-size: 20px;
+        }
+
+        .desc {
+            margin: 5px;
+            margin-left: 0;
+            width: 450px;
+            height:max-content;
+            font-size: 14px;
+        }
+
+        .desc {
+            max-width: 500px;
+        }
+
+        input[type=submit] {
+            background-color: rgb(174, 73, 233);
+            padding: 10px;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        input[type=submit]:hover {
+            transition-duration: 0.3s;
+            background-color: rgb(190, 101, 212);
+            font-size: 21px;
+        }
+
+
+    </style>    
+
+        <div class="question_box">
+            <h1>Describe your question</h1>
+            <form action="/ask" method="post">
+                <label for="header">Header of your question</label><br>
+                <input type="text" id="header" name="header" required class="title" placeholder="type here" minlength="1"><br><br>
+
+                <label for="explanation">Explain your question</label><br>
+                <textarea name="explanation" id="explanation" name="explanation" cols="48" rows="5" placeholder="here..." required class="desc" minlength="1"></textarea><br><br>
+
+                <label for="category">Choose a category: </label>
+                <select name="category" id="items">                    
+                    {% for i in range(lenf) %}
+                    <option value="{{ ctgry[i]['category'] }}">{{ ctgry[i]['category'] }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+
+                <input type="submit" value="Ask">
+            </form>
+        </div>
+    
+</body>
+</html>

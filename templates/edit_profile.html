@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EDIT</title>
+        <link rel="shortcut icon" href="#" /> 
+        <link rel="stylesheet" href="../static/edit_profile.css">        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="user_image">
+                <img src="../static/images/{{username}}.png" alt="" class="user_photo">                
+            </div>
+            <h2>Welcome {{fname}}</h2>
+            <div class="header_right">
+                <div class="cabinet_button">
+                    <form action="/">
+                        <button class="cabinet_button">home</button>
+                    </form>                    
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="name">
+                <h1>Personal info</h1>
+                <form action="/edit_profile" method="post">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="name" value = "{{fname}}" required><br><br>
+
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value = "{{lname}}" required><br><br>
+
+                    <label for="name">User name:</label><br>                    
+                    <input type="text" id="name" name="uname" value = "{{username}}"  minlength="3" required><br><br>
+
+                    <label for="mail">Email:</label><br>                    
+                    <input type="email" id="mail" name="email" value = "{{email}}" required><br><br>
+
+                    <input type="submit" name="action" value="Submit" class="submit_image">
+                </form> 
+            </div>
+
+            <div class="password">
+                <h1>Your password</h1>
+                <form action="/edit_profile" method="post">
+                    <label for="pwd_curret">Current:</label><br>
+                    <input type="password" id="pwd_curret" name="current" placeholder="password"  minlength="4" required autocomplete="off"><br><br>
+                    <label for="pwd">New:</label><br>
+                    <input type="password" id="pwd" name="new" placeholder="password" required minlength="4" autocomplete="off"><br><br>
+
+                    <input type="submit" name="action" value="Confirm" class="submit_image">
+                </form> 
+            </div>
+
+            <div class="photo">
+                <h1>User Photo</h1>
+                <form action="/edit_profile" method="post" enctype = 'multipart/form-data'>
+                    <input type="file"  id="myFile" accept="image/png, image/jpeg" name="user_photo"  value="choose"><br><br>
+                    <span>You can choose image filters:</span><br><br>
+
+                    <input type="radio" id="blur" name="filter" value="Blur">
+                    <label for="blur">Blur</label><br>
+
+                    <input type="radio" id ="sepia" name="filter" value="Solarized">
+                    <label for="sepia">Solarized</label><br>
+
+                    <input type="radio" id="black" name="filter" value="Black">
+                    <label for="black">Black-white</label><br>
+
+                    <input type="radio" id="none" name="filter" value="none" checked>
+                    <label for="none">None</label><br><br>
+
+                    <input type="submit" name="action" value="Upload" class="submit_image">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QUESTIONS</title>
+        <link rel="stylesheet" href="../static/header.css">
+        <link rel="stylesheet" href="../static/explore_bar.css">
+        <link rel="stylesheet" href="../static/content.css">
+        <link rel="stylesheet" href="../static/pagination.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header_left">
+                <img src="../static/icons/forum_logo.png" alt="forum" class="logo">
+            </div>
+
+            <form action="/search" method="post">
+                <div class="header_medium">                    
+                        <input type="text" class="search_bar" name="search" placeholder="Search">
+                        <button type="submit" class="search_button"> <i class="fa fa-search" aria-hidden="true"></i> </button>                    
+                </div>
+            </form>
+        
+            <div class="header_right">
+                <form action="/login">
+                    <button type="submit" class="log_button">Log in</button>
+                </form>
+                <form action="/edit_profile">
+                    <button type="submit" class="register_button">Register</button>
+                </form>
+                <div class="cabinet_button">
+                    <form action="/">
+                        <button class="cabinet_button">home</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </header>
+
+        <form action="/category" method="POST">
+            <div class="explore_bar">
+                <div>
+                    <p style="color: orangered">Explore</p>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="gaming" class="bar_button"><i class="fa fa-gamepad" aria-hidden="true"></i>  Gaming</button>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="television" class="bar_button"><i class="fa fa-television" aria-hidden="true"></i>  Television</button>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="business" class="bar_button"><i class='far fa-address-card'></i>  Business</button>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="books"class="bar_button"><i class="fa fa-book" aria-hidden="true"></i>  Self-dev</button>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="proramming" class="bar_button"><i class="fa fa-code" aria-hidden="true"></i>  Programming</button>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="crypto" class="bar_button"><i class="fa fa-btc" aria-hidden="true"></i>  Crypto</button>
+                </div>
+                <div class="explore_buttons">
+                    <button type="submit" name="category" value="Other" class="bar_button"><i class="fa fa-bars" aria-hidden="true"></i>  More</button>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="content">
+            <h1>All Questions</h1>
+            {% for i in range(leng) %}
+            <div class="box">
+                <div class="head">
+                    <div class="profile_image"><img class="profile_picture" src="../static/images/{{ q[i]['uname'] }}.png" alt="user_icon"></div>                    
+                    <span class="head_text">{{ q[i]['uname'] }}    posted {{ q[i]['time'] }}</span>
+                </div>
+                <div class="body"><span class="box_title">{{ q[i]['title'] }}</span> {{ q[i]['body'] }} </div>
+                <form action="/questions" method="post">
+                    <div class="tail">
+                        <button name="ques" value="comment${{ q[i]['questionid'] }}" class="comment_button"><i class="fa fa-comment" aria-hidden="true"></i>  {{ com }} Comments</button>
+                        <button name="ques" value="like${{ q[i]['questionid'] }}" class="like_button"><i class="fa fa-thumbs-up" aria-hidden="true"></i>  {{ q[i]['likes'] }} Likes</button>                 
+                    </div>
+                </form>
+                
+            </div>
+            {% endfor %}
+            
+        
+        <div class="pagination">
+            <form action="/paginate" method="post">
+                {% for i in range(p) %}                
+                <button name="page" value="{{ i+1 }}">{{ i+1 }}</button>          
+                {% endfor %} 
+            </form>           
+        </div>
+        
+        
+    </body>
+</html>

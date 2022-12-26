@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CABINET</title>
+        <link rel="stylesheet" href="../static/cabinet.css">
+        <link rel="stylesheet" href="../static/content.css">
+    </head>
+    <body>
+        <header class="header">
+            <form action="/">
+                <button class="header_left" type="submit">
+                    <img src="../static/icons/forum_logo.png" alt="forum" class="logo">
+                </button>
+            </form>
+            
+            <div class="header_medium">
+                <input class="search_bar" type="text" placeholder="Search">
+                <button class="search_button"> 
+                    <img src="../static/icons/search_icon.png" alt="search_icon" class="search_icon">
+                </button>
+            </div>
+            <div class="header_right">
+                
+                <div class="cabinet_button">
+                    <form action="/preedit">                        
+                        <button class="cabinet_button">/edit profile</button>                                               
+                    </form>                    
+                </div>
+                
+            </div>
+        </header>
+
+        <div class="user_comment">
+            <h1>Banned Users</h1>
+
+            {% for i in range(leng) %}
+            <div class="box">
+                <div class="head">
+                    <div class="profile_image"><img class="profile_picture" src="../static/images/{{ b[i]['username'] }}.png" alt="user_icon"></div>   
+                    <span class="head_text"> {{ b[i]['username'] }}</span>                 
+                </div>
+                <div class="body"><span class="box_title">{{ b[i]['fname'] }}  {{ b[i]['lname'] }}</span> </div>
+                <form action="/questions" method="post">
+                    <div class="tail">                  
+                        <button name="ques" value="ok${{ b[i]['username'] }}" id="unban">UNBAN</button>                     
+                    </div>
+                </form>
+            </div>
+            {% endfor %} 
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CABINET</title>
+        <link rel="stylesheet" href="../static/cabinet.css">
+        <link rel="stylesheet" href="../static/content.css">
+    </head>
+    <body>
+        <header class="header">
+            <form action="/">
+                <button class="header_left" type="submit">
+                    <img src="../static/icons/forum_logo.png" alt="forum" class="logo">
+                </button>
+            </form>
+            
+            <div class="header_medium">
+                <input class="search_bar" type="text" placeholder="Search">
+                <button class="search_button"> 
+                    <img src="../static/icons/search_icon.png" alt="search_icon" class="search_icon">
+                </button>
+            </div>
+            <div class="header_right">
+                
+                <div class="cabinet_button">
+                    <form action="/preedit">                        
+                        <button class="cabinet_button">/edit profile</button>                                               
+                    </form>                    
+                </div>
+                
+            </div>
+        </header>
+
+        <div class="user_comment">
+            <h1>My questions</h1>
+            {% if status == 'admin' %}
+            <form action="/cabinet" method="post">
+                <button name="moderate" value="moderate" id="moderate">/hidden mesages</button>
+                <button name="ban" value="ban" id="moderate">/banned users</button>
+            </form>
+            {% endif %}
+
+            {% for i in range(leng) %}
+            <div class="box">
+                <div class="head">
+                    <div class="profile_image"><img class="profile_picture" src="../static/images/{{ q[i]['uname'] }}.png" alt="user_icon"></div>                    
+                    <span class="head_text">{{ q[i]['uname'] }}    posted {{ q[i]['time'] }}</span>
+                </div>
+                <div class="body"><span class="box_title">{{ q[i]['title'] }}</span> {{ q[i]['body'] }}</div>
+                <form action="/questions" method="post">
+                    <div class="tail">
+                        <button name="ques" value="comment${{ q[i]['questionid'] }}" class="comment_button"><i class="fa fa-comment" aria-hidden="true"></i>  {{ q[i]['comment'] }} Comments</button>
+                        <button name="ques" value="like${{ q[i]['questionid'] }}" class="like_button"><i class="fa fa-thumbs-up" aria-hidden="true"></i>  {{ q[i]['likes'] }} Likes</button>                 
+                    </div>
+                </form>
+                
+            </div>
+            {% endfor %}
+
+        </div>
+    </body>
+
+</html>

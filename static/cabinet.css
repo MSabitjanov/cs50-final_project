@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+* {    
+    font-family: "Monserrat", sans-serif;
+    font-weight: 500;
+}
+
+body {
+    height: 3000px;
+}
+
+.header {
+    background-color: white;
+    margin: 0px;
+    padding: 0;    
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 20px 20px 24px;
+}
+
+.header_left {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    background-color: white;
+}
+
+.header_left:hover {
+    background-color: orangered;
+}
+
+.header_medium {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search_icon {
+    height: 20px;
+}
+
+.header_right {
+    margin-right: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: orangered;
+    border-radius: 15px;
+}
+
+.logo {
+    height: 70px;
+}
+
+.cabinet_button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    border: none;
+    margin: 9px;
+    padding: 0;   
+    background-color: orangered;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.cabinet_button:hover {
+    background-color: rgb(255, 115, 0);
+    transition: 0.3s;
+}
+
+.search_bar {
+    margin-right: -1px;
+    height: 28px;
+    width: 300px
+    
+}
+
+.search_button {
+    height: 34px;
+    width: 50px;
+}
+
+.user_comment {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 100px;
+
+    max-width: 60%;
+    /* border: 1px solid black; */
+    background-color: white;
+    display: flex;
+
+    flex-direction: column;
+    
+}
+
+h1 {
+    font-family: "Monserrat", sans-serif;
+    font-weight: 500;
+    margin-left: 20px;
+    padding-top: 0;
+}
+

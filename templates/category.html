@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATEGORY</title>
+    <link rel="stylesheet" href="../static/header.css">
+    <link rel="stylesheet" href="../static/category.css">
+    <link rel="stylesheet" href="../static/content.css">
+</head>
+<body>
+
+    <h1>{{ messages[0]['category'] }}</h1>
+
+    <header class="header">
+        <div class="header_left">
+            <img src="../static/icons/forum_logo.png" alt="forum" class="logo">
+        </div>
+        <div class="header_medium">
+            <input class="search_bar" type="text" placeholder="Search">
+            <button class="search_button"> 
+                <img src="../static/icons/search_icon.png" alt="search_icon" class="search_icon">
+            </button>
+        </div>
+        <div class="header_right">
+            <form action="/login">
+                <button type="submit" class="log_button">Log in</button>
+            </form>
+            <form action="/edit_profile">
+                <button type="submit" class="register_button">Register</button>
+            </form>
+            <div class="cabinet_button">
+                <form action="/">
+                    <button class="cabinet_button">home</button>
+                </form>
+                
+            </div>
+        </div>
+    </header>
+
+    <form action="/category" method="post">
+    <div class="sidenav">
+        <p style="color: orangered">All Categories</p>
+            {% for i in range(lex) %}           
+            <button type="submit" name="category" value="{{ categ[i]['category'] }}" class="bar_button">  {{ categ[i]['category'] }}</button>
+            {% endfor %}           
+    </div>
+    </form>
+
+    {% for i in range(lengz) %}
+        <div class="box">
+            <div class="head">
+                <div class="profile_image"><img class="profile_picture" src="../static/images/{{ messages[i]['uname'] }}.png" alt="user_icon"></div>                    
+                <span class="head_text">{{ messages[i]['uname'] }}    posted {{ messages[i]['time'] }}</span>
+            </div>
+            <div class="body"><span class="box_title">{{ messages[i]['title'] }}</span> {{ messages[i]['body'] }}</div>
+            <form action="/questions" method="post">
+                <div class="tail">
+                    <button name="ques" value="comment${{ messages[i]['questionid'] }}" class="comment_button"><i class="fa fa-comment" aria-hidden="true"></i>  {{ messages[i]['comment'] }} Comments</button>
+                    <button name="ques" value="like${{ messages[i]['questionid'] }}" class="like_button"><i class="fa fa-thumbs-up" aria-hidden="true"></i>  {{ messages[i]['likes'] }} Likes</button>
+                </div>
+            </form>
+        </div>
+    {% endfor %}
+
+</body>
+</html>

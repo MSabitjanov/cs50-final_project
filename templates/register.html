@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REGISTER</title>
+        <link rel="shortcut icon" href="#" /> 
+        <link rel="stylesheet" href="../static/edit_profile.css">        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="user_image">
+                <img src="../static/icons/user.png" alt="" class="user_photo">                
+            </div>
+            <h2>Welcome Muzaffar</h2>
+            <div class="header_right">
+                <div class="cabinet_button">
+                    <form action="/">
+                        <button class="cabinet_button">home</button>
+                    </form>                    
+                </div>
+            </div>
+        </header>
+
+        <form action="/register" method="post" enctype = 'multipart/form-data'>
+            <div class="content">
+                
+                <div class="name">
+                    <h1>Personal info</h1>
+                    
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="name" placeholder="type here" required><br><br>
+
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" placeholder="type here" required><br><br>
+
+                    <label for="name">User name:</label><br>                    
+                    <input type="text" id="name" name="uname" placeholder="type here" required minlength="3"><br><br>
+
+                    <label for="mail">Email:</label><br>                    
+                    <input type="email" id="mail" name="email" placeholder="type here" required><br><br>
+
+                    
+                </div>
+
+                <div class="password">
+                    <h1>Your password</h1>
+                    
+                    <label for="pwd_curret">Password:</label><br>
+                    <input type="password" id="pwd_curret" name="current" placeholder="password" required minlength="4" ><br><br>
+                    <label for="pwd">Confirm:</label><br>
+                    <input type="password" id="pwd" name="new" placeholder="password" required minlength="4"><br><br>
+
+                    
+                    
+                </div>
+
+                <div class="photo">
+                    <h1>User Photo</h1>
+                    
+                    <input type="file"  id="myFile" accept="image/png, image/jpeg" name="photo"  value="choose"><br><br>
+                    <span>You can choose image filters:</span><br><br>
+
+                    <input type="radio" id="blur" name="filter" value="Blur">
+                    <label for="blur">Blur</label><br>
+
+                    <input type="radio" id ="sepia" name="filter" value="Solarized">
+                    <label for="sepia">Sepia</label><br>
+
+                    <input type="radio" id="black" name="filter" value="Black">
+                    <label for="black">Black-white</label><br>
+
+                    <input type="radio" id="none" name="filter" value="none" checked>
+                    <label for="none">None</label><br><br>                    
+                    
+                </div>
+                
+            </div>
+            <input type="submit" name="action" value="Confirm" class="submit_image">
+    </form>
+    </body>
+</html>

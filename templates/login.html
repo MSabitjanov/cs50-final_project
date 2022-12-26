@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOGIN</title>
+        <style>
+            body {
+                background: #833ab4;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            }
+
+            .container {
+                font-family: sans-serif;
+                background-color: white;
+                border-radius: 10px;
+                position: absolute;
+                top: 20%;
+                left: 38%;
+                right: 38%;
+                bottom: 20%;
+                padding: 15px;
+                padding-left: 35px;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+
+            label {
+                font-weight: bold;
+            }
+
+            .log {
+                margin: 10px;
+                margin-left: 0;
+                padding: 7px;
+                border-color: violet;
+                border-radius: 10px;
+            }
+
+            input[type=submit] {
+                color: white;
+                font-weight: bold;
+                background-color: #fd1d1d;
+                border: none;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 15px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #fd941d;
+                transition: 0.3s;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Log in</h1><br>
+            <form action="/login" method="post">
+                <label for="uname">Username</label><br>
+                <input type="text" id="uname" name="uname" minlength="1" placeholder="here.." required class="log"><br><br>
+
+                <label for="password">Your password</label><br>
+                <input type="password" id="password" name="password" minlength="4" placeholder="here.." required class="log"><br><br>
+                <a href="http://localhost:55/register">Register</a><br><br>
+                
+                <input type="submit" value="Log in">
+            </form>
+        </div>
+    </body>
+</html>
